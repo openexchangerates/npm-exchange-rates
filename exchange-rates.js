@@ -1,5 +1,5 @@
 /**
- * Open Source Exchange Rates API - nodeJS/npm module - v0.1
+ * Open Source Exchange Rates API - nodeJS/npm module - v0.1.1
  * by Joss Crowcroft | http://josscrowcroft.github.com/open-exchange-rates
  * 
  * Loads up-to-date exchange rate data from the free openexchangerates.org API
@@ -28,7 +28,7 @@
 	var exchange = {};
 
 	// Module version:
-	exchange.version = "0.1";
+	exchange.version = "0.1.1";
 
 	// Default API URL, loads data from the Open Exchange Rates project:
 	exchange.url = "http://openexchangerates.org/latest.json"

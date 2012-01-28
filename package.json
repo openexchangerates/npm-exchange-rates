@@ -5,8 +5,10 @@
 	"keywords" : ["exchange", "rate", "currency", "money", "fx", "loader", "utilities", "accounting", "forex"],
 	"author": "Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)",
 	"contributors" : ["Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)", "CurrencyBot (http://currencybot.github.com)"],
-	"dependencies" : ["http-agent"],
+	"dependencies" : {
+		"http-agent" : "*"
+	},
 	"repository" : {"type": "git", "url": "git://github.com/josscrowcroft/npm-exchange-rates.git"},
 	"main" : "exchange-rates.js",
-	"version" : "0.1.0"
+	"version" : "0.1.1"
 }

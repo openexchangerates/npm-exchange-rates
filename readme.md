@@ -61,5 +61,6 @@ For more info and examples, check out the **[Open Source Exchange Rates homepage
 
 ### Changelog
 
-### 0.1.0
-* First version
+**0.1.1** - make package.json dependency list an object
+
+**0.1.0** - first version
