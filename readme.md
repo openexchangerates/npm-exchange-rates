@@ -1,16 +1,22 @@
 # Open Exchange Rates module for nodeJS/npm
 
+**Important update:** This npm module will soon be updated to accept an App ID option, which will be required to access the Open Exchange Rates service. Check out **[the GitHub repo](https://github.com/currencybot/open-exchange-rates)** for more info and watch this space!
+
+
+## Introduction
+
 	$ npm install exchange-rates
 
-A nodeJS module that loads up-to-date exchange rate data from the Open Exchange Rates API project (via `openexchangerates.org/latest.json`), or any other service you specify.
+A nodeJS module that loads up-to-date currency/exchange rate data from the **[Open Exchange Rates](http://openexchangerates.org)** (via `openexchangerates.org/latest.json`), or any other service you specify, for use in your node scripts and apps.
 
 Features override-able validation/parsing of raw API data, so that you can use it to load data from any service and parse/format it according to needs.
 
-Works great with money.js (`npm install money`) - a tiny currency-conversion library for nodeJS (and web).
+Works great with **[money.js](http://josscrowcroft.github.com/money.js)** (`npm install money`) - a tiny currency-conversion library for nodeJS (and web).
 
 Requires `http-agent`
 
 To install, type `npm install exchange-rates` in the terminal. Then see below.
+
 
 ## Example Usage:
 
@@ -55,9 +61,11 @@ To install, type `npm install exchange-rates` in the terminal. Then see below.
 		fx(1).from("GBP").to("USD"); // 1.586 or etc.
 	});
 
+
 ## More Info
 
-For more info and examples, check out the **[Open Source Exchange Rates homepage](http://josscrowcroft.github.com/open-exchange-rates)**
+For more info and examples, check out the **[Open Exchange Rates homepage](http://openexchangerates.org)**
+
 
 ### Changelog
 
