@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/josscrowcroft/npm-exchange-rates.png)](http://travis-ci.org/josscrowcroft/npm-exchange-rates)
 # Open Exchange Rates module for nodeJS/npm
 
 **Important update:** This npm module will soon be updated to accept an App ID option, which will be required to access the Open Exchange Rates service. Check out **[the GitHub repo](https://github.com/currencybot/open-exchange-rates)** for more info and watch this space!
