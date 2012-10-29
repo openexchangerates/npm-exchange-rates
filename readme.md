@@ -1,74 +1,77 @@
 # Open Exchange Rates module for nodeJS/npm
 
-**Important update:** This npm module will soon be updated to accept an App ID option, which will be required to access the Open Exchange Rates service. Check out **[the GitHub repo](https://github.com/currencybot/open-exchange-rates)** for more info and watch this space!
+**Important update:** v0.2 is not backwards-compatible with v0.1, and the name has been changed from 'exchange-rates' to 'open-exchange-rates', to reflect the fact that it is solely a wrapper for the OXR service (the previous module had the rarely-used feature of being able to work with any other APIs, via a custom `parse` method). 
 
 
 ## Introduction
 
-	$ npm install exchange-rates
+	$ npm install open-exchange-rates
 
-A nodeJS module that loads up-to-date currency/exchange rate data from the **[Open Exchange Rates](http://openexchangerates.org)** (via `openexchangerates.org/latest.json`), or any other service you specify, for use in your node scripts and apps.
+A nodeJS module that loads up-to-date currency/exchange rate data from the **[Open Exchange Rates API](http://openexchangerates.org "Exchange Rates API, free currency conversion data")** service, for use in your nodeJS scripts and apps.
 
-Features override-able validation/parsing of raw API data, so that you can use it to load data from any service and parse/format it according to needs.
+Works perfectly with **[money.js](http://josscrowcroft.github.com/money.js "JavaScript and NodeJS Currency Conversion Library")** (`npm install money`) - a tiny currency-conversion library for nodeJS (and web) - but you can use the data however you like.
 
-Works great with **[money.js](http://josscrowcroft.github.com/money.js)** (`npm install money`) - a tiny currency-conversion library for nodeJS (and web).
+**NB:** an App ID is required to connect to the API. It's free for personal/small-scale use and a bargain for business/commercial. Get yours in 30 seconds or less at **[openexchangerates.org/signup](https://openexchangerates.org/signup "Exchange Rates API key signup")**.
 
-Requires `http-agent`
+Requires: `http-agent`
 
-To install, type `npm install exchange-rates` in the terminal. Then see below.
+To install, type `npm install open-exchange-rates` in the terminal. Then see below.
 
 
 ## Example Usage:
 
+See the **example.js** in this repository for a basic, working usage example.
+
 #### Start with this:
 
-	var exchange = require("exchange-rates");
+	var oxr = require('open-exchange-rates');
 
-#### Default - load data from openexchangerates.org:
+#### Load latest rates from openexchangerates.org:
 
-	exchange.load(function() {
-		// You can now use `exchange.rates`, `exchange.base` and `exchange.timestamp`
+	var oxr = require('open-exchange-rates');
+	oxr.set({ app_id: 'YOUR_APP_ID' })
+	
+	oxr.latest(function() {
+		// You can now use `oxr.rates`, `oxr.base` and `oxr.timestamp`...
 	});
 
-#### Usage with some other API:
+#### Get historical rates:
 
-	// Custom callback function to parse the returned API data:
-	exchange.parse = function(data, exchange) {
-		exchange.base = "USD";
-		exchange.rates = parseJSON(data);
-		return exchange;
-	};
+	var oxr = require('open-exchange-rates');
+	oxr.set({ app_id: 'YOUR_APP_ID' })
 	
-	// Load the API data:
-	exchange.load("http://mycoolwebservi.ce/api.json", function() {
-		// You can now use `exchange.rates` and `exchange.base` as defined in `parse()`
+	oxr.historical('2004-02-16', function() {
+		// You can now use `oxr.rates`, `oxr.base` and `oxr.timestamp`...
 	});
 
-	// You can also set the URL globally, then just load as normal:
-	exchange.url = "http://mycoolwebservi.ce/api.json";
+#### Currency conversion with money.js (fx) module:
 
-#### Usage with money.js:
-
-	var exchange = require("exchange-rates"),
-		fx = require("money");
+	var oxr = require('open-exchange-rates'),
+		fx = require('money');
 	
-	exchange.load(function() {
-		// Apply exchange rates and base rate to `fx` object:
-		fx.rates = exchange.rates;
-		fx.base = exchange.base;
+	oxr.set({ app_id: 'YOUR_APP_ID' })
+	
+	oxr.latest(function() {
+		// Apply exchange rates and base rate to `fx` library object:
+		fx.rates = oxr.rates;
+		fx.base = oxr.base;
 		
-		// money.js is all set up:
-		fx(1).from("GBP").to("USD"); // 1.586 or etc.
+		// money.js is all set up now:
+		fx(100).from('HKD').to('GBP'); // 8.0424 or etc.
 	});
+
+#### Advanced API Features:
+
+The **[Open Exchange Rates API](http://openexchangerates.org "Open Exchange Rates - currency conversion API for developers")** features several advanced features, for paying clients. These will be added to the module (and documented here) soon!
 
 
 ## More Info
 
-For more info and examples, check out the **[Open Exchange Rates homepage](http://openexchangerates.org)**
+For more information, documentation, examples and showcase, check out the **[Open Exchange Rates homepage](https://openexchangerates.org "Open Exchange Rates API - real-time currency data API")**
 
 
 ### Changelog
 
-**0.1.1** - make package.json dependency list an object
+**0.2.0** - updated to work with latest version of Open Exchange Rates API with App IDs; renamed to 'open-exchange-rates'
 
 **0.1.0** - first version
