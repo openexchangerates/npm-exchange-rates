@@ -1,7 +1,10 @@
 # Open Exchange Rates module for nodeJS/npm
 
-**Important update:** This npm module will soon be updated to accept an App ID option, which will be required to access the Open Exchange Rates service. Check out **[the GitHub repo](https://github.com/currencybot/open-exchange-rates)** for more info and watch this space!
+**Important update:** This npm module has been deprecated and REPLACED by the improved 'open-exchange-rates' module, available at https://npmjs.org/package/open-exchange-rates. Thanks!
 
+Check out the latest version at **[npmjs.org/package/open-exchange-rates](https://npmjs.org/package/open-exchange-rates "Open Exchange Rates npm / nodeJS module")**!
+
+---
 
 ## Introduction
 
@@ -68,6 +71,8 @@ For more info and examples, check out the **[Open Exchange Rates homepage](http:
 
 
 ### Changelog
+
+**0.1.2** - DEPRECATED & REPLACED BY `open-exchange-rates` NPM MODULE
 
 **0.1.1** - make package.json dependency list an object
 

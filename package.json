@@ -1,7 +1,7 @@
 {
 	"name" : "exchange-rates",
-	"description" : "nodeJS exchange rate data loader, with configurable default open-source API service",
-	"homepage": "http://josscrowcroft.github.com/open-exchange-rates",
+	"description" : "NB: this module is deprecated and replaced by the new 'open-exchange-rates' module, available at https://npmjs.org/package/open-exchange-rates",
+	"homepage": "https://npmjs.org/package/open-exchange-rates",
 	"keywords" : ["exchange", "rate", "currency", "money", "fx", "loader", "utilities", "accounting", "forex"],
 	"author": "Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)",
 	"contributors" : ["Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)", "CurrencyBot (http://currencybot.github.com)"],
@@ -10,5 +10,5 @@
 	},
 	"repository" : {"type": "git", "url": "git://github.com/josscrowcroft/npm-exchange-rates.git"},
 	"main" : "exchange-rates.js",
-	"version" : "0.1.1"
+	"version" : "0.1.2"
 }

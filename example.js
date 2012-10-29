@@ -2,6 +2,14 @@
  * Open Source Exchange Rates API - nodeJS/npm module
  * by Joss Crowcroft | http://josscrowcroft.github.com/open-exchange-rates
  *
+ * NB: This module has been DEPRECATED and REPLACED by the improved
+ * 'open-exchange-rates' module (https://npmjs.org/package/open-exchange-rates)
+ *
+ * It's highly recommended that you use that one instead! (This module will no
+ * longer work, unless you modify it to include an `app_id` with your requests.
+ *
+ * ---
+ *
  * Basic usage example
  */
 

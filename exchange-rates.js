@@ -1,15 +1,23 @@
 /**
- * Open Source Exchange Rates API - nodeJS/npm module - v0.1.1
- * by Joss Crowcroft | http://josscrowcroft.github.com/open-exchange-rates
- * 
- * Loads up-to-date exchange rate data from the free openexchangerates.org API
+ * Open Source Exchange Rates API - nodeJS/npm module - v0.1.2
+ * by Joss Crowcroft | http://www.josscrowcroft.com
+ *
+ * NB: This module has been DEPRECATED and REPLACED by the improved
+ * 'open-exchange-rates' module (https://npmjs.org/package/open-exchange-rates)
+ *
+ * It's highly recommended that you use that one instead! (This module will no
+ * longer work, unless you modify it to include an `app_id` with your requests.
+ *
+ * ---
+ *
+ * Loads up-to-date exchange rate data from the https://openexchangerates.org API
  * or any other service. Doesn't mind what format you need the exchange rates
  * in or where you get them from. Easy to override post-receive parsing method.
- * 
+ *
  * Requires: http-agent
- * 
- * Usage: 
- *     var exchange = require("exchange-rates"); 
+ *
+ * Usage:
+ *     var exchange = require("exchange-rates");
  *     exchange.load([url], function(error, data) {
  *         // if no `error`, `exchange.rates` and `exchange.base` are available
  *         // `error` is the same as `exchange.error` and contains debug info
