@@ -12,7 +12,7 @@
 
 // Example usage with money.js, loading data from the Open Exchange Rates API:
 var fx = require('money'),
-	oxr = require('./open-exchange-rates.js');
+	oxr = require('open-exchange-rates');
 
 // Set App ID (required):
 oxr.set({

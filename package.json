@@ -6,7 +6,7 @@
 	"author": "Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)",
 	"contributors" : [
 		"Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)",
-		"Currency Bot (http://currencybot.github.com)"
+		"Currency Bot (http://currencybot.github.com)",
 		"Open Exchange Rates <info@openxchangerates.org> (https://openexchangerates.org)"
 	],
 	"dependencies" : {
