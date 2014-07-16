@@ -1,14 +1,13 @@
 /**
- * open-exchange-rates npm module - v0.2.0
- * by @josscrowcroft - http://josscrowcroft.com
+ * open-exchange-rates npm module - v0.3
+ * by Open Exchange Rates - https://openexchangerates.org
  *
- * The nodeJS/npm wrapper for the Open Exchange Rates API.
- * Please note: an App ID from https://openexchangerates.org is required.
+ * nodeJS/npm wrapper for the Open Exchange Rates API.
+ * Sign up for an API App ID here: https://openexchangerates.org/signup
  *
  * Requires: http-agent
  *
  * Basic Usage:
- *
  *     var oxr = require('open-exchange-rates');
  *     oxr.set({app_id: 'YOUR_APP_ID'});
  *     oxr.latest(function(error) {
@@ -26,7 +25,7 @@
 	/* Library settings */
 
 	// Module version:
-	oxr.version = '0.2';
+	oxr.version = '0.3';
 
 	// API base URL:
 	oxr.api_url = 'http://openexchangerates.org/api/'
@@ -37,14 +36,14 @@
 	// The rates object:
 	oxr.rates = {};
 
-	// If something went wrong, you'll hear about it via `oxr.error`
+	// If something goes wrong, details will be stored in `oxr.error`:
 	oxr.error = '';
 
 
 	/* Library methods */
 
 	// Sets API module parameters:
-	// Currently only app_id is implemented (advanced params coming soon)
+	// Currently only app_id is implemented (advanced parameters in roadmap)
 	oxr.set = function(opts) {
 		oxr.app_id = opts.app_id;
 		return oxr;
@@ -58,7 +57,6 @@
 
 	// Loads `historical/yyyy-mm-dd.json` (historical rates)
 	// `date` must be in format `'YYYY-MM-DD'`, e.g. `'2001-12-31'`
-	// @todo: add support for `Date` objects.
 	oxr.historical = function(date, callback) {
 		oxr.load('historical/' + date + '.json', callback);
 		return oxr;
@@ -73,7 +71,6 @@
 		path = (typeof path === 'string') ? path : 'latest.json';
 
 		// Build API URL
-		// @todo: extend with advanced params when implemented
 		var url = oxr.api_url + path + '?app_id=' + oxr.app_id;
 
 		// Create the http-agent that will grab the data:

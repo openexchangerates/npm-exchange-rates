@@ -1,16 +1,21 @@
 /**
- * open-exchange-rates npm module - v0.2.0
- * by @josscrowcroft - http://josscrowcroft.com
+ * open-exchange-rates npm module - v0.3
+ * by Open Exchange Rates - https://openexchangerates.org
  *
- * Basic usage example
+ * Basic usage example - with money.js, and loading data from the Open
+ * Exchange Rates API.
  *
  * Check out the readme for information and integration details about:
  * - Falling back to local/cached exchange rates, if the request fails
  * - Advanced API features and services provided by Open Exchange Rates
  * - Debugging API and module errors
+ *
+ * Documentation for money.js: http://openexchangerates.github.io/money.js
+ *
+ * See readme.md for further examples
  */
 
-// Example usage with money.js, loading data from the Open Exchange Rates API:
+// Modules:
 var fx = require('money'),
 	oxr = require('open-exchange-rates');
 

@@ -3,19 +3,18 @@
 	"description" : "nodeJS/npm wrapper for the Open Exchange Rates API",
 	"homepage": "https://openexchangerates.org",
 	"keywords" : ["exchange", "rate", "rates", "api", "realtime", "currency", "conversion", "money", "fx", "loader", "utilities", "accounting", "forex", "finance"],
-	"author": "Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)",
+	"author": "Open Exchange Rates <info@openexchangerates.org> (https://www.openexchangerates.org)",
 	"contributors" : [
-		"Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)",
-		"Currency Bot (http://currencybot.github.com)",
-		"Open Exchange Rates <info@openxchangerates.org> (https://openexchangerates.org)"
+		"Open Exchange Rates <info@openxchangerates.org> (https://openexchangerates.org)",
+		"Joss Crowcroft <josscrowcroft@gmail.com> (http://www.josscrowcroft.com)"
 	],
 	"dependencies" : {
 		"http-agent" : "*"
 	},
 	"repository" : {
 		"type": "git",
-		"url": "git://github.com/josscrowcroft/npm-exchange-rates.git"
+		"url": "git://github.com/openexchangerates/npm-exchange-rates.git"
 	},
 	"main" : "open-exchange-rates.js",
-	"version" : "0.2.0"
+	"version" : "0.3.0"
 }
