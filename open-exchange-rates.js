@@ -71,7 +71,7 @@
 		path = (typeof path === 'string') ? path : 'latest.json';
 
 		// Build API URL
-		var url = oxr.api_url + path + '?app_id=' + oxr.app_id;
+		var url = oxr.api_url + path + '?app_id=' + oxr.app_id + '&base=' + oxr.base;
 
 		// Create the http-agent that will grab the data:
 		var agent = require('http-agent').create('', [{
