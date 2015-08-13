@@ -62,16 +62,30 @@
 		return oxr;
 	}
 
+	// Loads the list of available currencies
+	oxr.currencies = function(callback) {
+		oxr.load('currencies.json', callback, true);
+		return oxr;
+	}
+
 	// Loads exchange rates from the Open Exchange Rates API:
 	// `path` is optional (default `'latest.json'`)
 	// `callback` is required (see readme.md and example.js)
-	oxr.load = function(path, callback) {
+	oxr.load = function(path, callback, isCurrenciesCall) {
 		// Default parameters:
-		if (typeof path === 'function') callback = path;
+		if (typeof path === 'function') {
+			callback = path;
+			isCurrenciesCall = callback;
+		}
 		path = (typeof path === 'string') ? path : 'latest.json';
 
 		// Build API URL
-		var url = oxr.api_url + path + '?app_id=' + oxr.app_id;
+		var url = oxr.api_url + path + '?';
+		// 'Get currencies' call currently does not require an App ID,
+		// we won't waste the free API call allowance unless actually necessary:
+		if (!isCurrenciesCall) {
+			url = url + 'app_id=' + oxr.app_id;
+		}
 
 		// Create the http-agent that will grab the data:
 		var agent = require('http-agent').create('', [{
@@ -85,7 +99,7 @@
 
 			// Parse the API response:
 			if ( !oxr.error ) {
-				oxr.parse.call(oxr, data, oxr);
+				oxr.parse.call(oxr, data, oxr, isCurrenciesCall);
 			}
 
 			// Fire callback function, passing in any error and the raw data:
@@ -100,7 +114,7 @@
 	};
 
 	// The parse callback function takes the raw API data and parses/validates it.
-	oxr.parse = function(data, oxr) {
+	oxr.parse = function(data, oxr, isCurrenciesCall) {
 		// Try to parse the data as JSON:
 		try {
 			data = JSON.parse(data);
@@ -118,12 +132,18 @@
 
 		// The standard API response contains the base currency, an object of
 		// exchange rates, and the timestamp of when the rates were published:
-		if ( data && data.base && data.rates ) {
+		if ( data && isCurrenciesCall) {
+			oxr.currencyCodes = data;
+		} else if ( data && data.base && data.rates ) {
 			oxr.base = data.base;
 			oxr.rates = data.rates;
 			oxr.timestamp = data.timestamp * 1000; // (unix to ms)
+			oxr.disclaimer = data.disclaimer;
+			oxr.license = data.license;
 		} else {
-			oxr.error = 'No rates or base currency returned from API';
+			oxr.error = isCurrenciesCall ?
+				'No data returned from API' :
+				'No rates or base currency returned from API';
 		}
 
 		return oxr;
