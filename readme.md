@@ -43,6 +43,16 @@ See the **example.js** script in this repository for a basic, working example.
 		// Legal information can be accessed via 'oxr.disclaimer' and 'oxr.license'
 	});
 
+#### Get list of currency codes and names:
+
+	var oxr = require('open-exchange-rates');
+	//Setting the app_id is not required for this call
+	
+	oxr.currencies(function() {
+		// You can now use `oxr.currencyCodes`, e.g. 'oxr.currencyCodes.USD'
+		// is 'United States Dollar'
+	});
+
 #### Currency conversion with money.js (fx) module:
 
 **[money.js](http://openexchangerates.github.io/money.js "JavaScript and NodeJS Currency Conversion Library")** (`npm install money`) is a tiny JavaScript currency-conversion library for web and nodeJS.
