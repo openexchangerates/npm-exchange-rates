@@ -30,6 +30,7 @@ See the **example.js** script in this repository for a basic, working example.
 	
 	oxr.latest(function() {
 		// You can now use `oxr.rates`, `oxr.base` and `oxr.timestamp`
+		// Legal information can be accessed via 'oxr.disclaimer' and 'oxr.license'
 	});
 
 #### Get historical rates ("YYYY-MM-DD"):
@@ -39,6 +40,7 @@ See the **example.js** script in this repository for a basic, working example.
 	
 	oxr.historical('2001-02-03', function() {
 		// You can now use `oxr.rates`, `oxr.base` and `oxr.timestamp`
+		// Legal information can be accessed via 'oxr.disclaimer' and 'oxr.license'
 	});
 
 #### Currency conversion with money.js (fx) module:

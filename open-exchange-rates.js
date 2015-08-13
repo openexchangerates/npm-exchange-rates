@@ -122,6 +122,8 @@
 			oxr.base = data.base;
 			oxr.rates = data.rates;
 			oxr.timestamp = data.timestamp * 1000; // (unix to ms)
+			oxr.disclaimer = data.disclaimer;
+			oxr.license = data.license;
 		} else {
 			oxr.error = 'No rates or base currency returned from API';
 		}
