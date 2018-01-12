@@ -36,6 +36,9 @@
 	// The rates object:
 	oxr.rates = {};
 
+	// The list of currencies supported:
+	oxr.currencies = {};
+
 	// If something goes wrong, details will be stored in `oxr.error`:
 	oxr.error = '';
 
@@ -62,6 +65,12 @@
 		return oxr;
 	}
 
+	// Loads list of all currencies supported by Open Exchange Rates API:
+	oxr.currenciesList = function(callback) {
+		oxr.load('currencies.json', callback);
+		return oxr;
+	}
+
 	// Loads exchange rates from the Open Exchange Rates API:
 	// `path` is optional (default `'latest.json'`)
 	// `callback` is required (see readme.md and example.js)
@@ -84,6 +93,9 @@
 			oxr.error = err;
 
 			// Parse the API response:
+			if ( path === 'currencies.json') {
+				oxr.currencies = JSON.parse(data);
+			}
 			if ( !oxr.error ) {
 				oxr.parse.call(oxr, data, oxr);
 			}

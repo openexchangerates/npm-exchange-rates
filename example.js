@@ -24,6 +24,11 @@ oxr.set({
 	app_id: 'YOUR_APP_ID'
 });
 
+//List the supported currencies for conversion:
+oxr.currenciesList(function() {
+	console.log(oxr.currencies);
+});
+
 // Get latest exchange rates from API; pass to callback function when loaded:
 oxr.latest(function(error) {
 
